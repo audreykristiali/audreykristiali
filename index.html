@@ -708,28 +708,54 @@
   font-family: var(--sans);
 }
   @media (max-width: 768px) {
-  /* Nav */s
+  /* Nav */
   nav {
     padding: 1rem 1.5rem;
   }
+  .nav-toggle {
+    display: flex;
+  }
   .nav-links {
-    display: none;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    max-width: 300px;
+    height: 100vh;
+    background: var(--white);
+    padding: 6rem 2rem;
+    gap: 2rem;
+    box-shadow: -4px 0 24px rgba(13,31,60,0.12);
+    transition: right 0.3s ease;
+    z-index: 999;
+  }
+  .nav-links.open {
+    right: 0;
   }
 
   /* Hero */
   #hero {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 100px;
+    align-items: flex-start;
+    gap: 1rem;
     padding: 6rem 1.5rem 3rem;
     min-height: auto;
   }
   .hero-right {
-    display: none;
+    display: flex;
+    margin-top: 0.4rem;
+  }
+  .hero-right img {
+    width: 100px !important;
+    max-width: 100px !important;
   }
   .hero-name {
-    font-size: 3rem;
+    font-size: 1.8rem;
   }
   .hero-desc {
-    font-size: 0.95rem;
+    font-size: 0.85rem;
   }
   .hero-cta {
     flex-direction: column;
@@ -749,21 +775,35 @@
     grid-template-columns: 1fr 1fr;
   }
 
-  /* Experience */
-  #case-studies {
+  /* Professional Experience */
+  #professional-experience {
     padding: 4rem 1.5rem;
   }
-  .case-studies-header {
+  .professional-experience-header {
     flex-direction: column;
+    align-items: flex-start;
     gap: 1rem;
     margin-bottom: 2rem;
   }
-  .case-item {
-    grid-template-columns: 50px 1fr !important;
-    gap: 1rem !important;
+  .professional-experience-sub {
+    max-width: 100%;
+  }
+  .professional-experience-item {
+    display: grid !important;
+    grid-template-columns: 32px 1fr 68px !important;
+    align-items: center;
+    gap: 0.75rem !important;
     padding: 1.5rem 0;
   }
   .case-item img {
+    display: block !important;
+    width: 68px !important;
+    height: 68px !important;
+    max-width: 68px !important;
+    max-height: 68px !important;
+    object-fit: cover !important;
+  }
+  .case-item > div[style*="width: 200px"] {
     display: none !important;
   }
   .case-arrow {
@@ -781,6 +821,7 @@
   .case-tag {
     font-size: 0.65rem;
   }
+
 
   /* Community */
   #community {
@@ -807,9 +848,9 @@
     grid-template-columns: 1fr !important;
     gap: 2rem;
   }
-  #skills > div[style] {
-    grid-template-columns: 1fr 1fr !important;
-    gap: 8px;
+  #skills > div[style] > div:nth-child(2) {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
   }
 
   /* Contact */

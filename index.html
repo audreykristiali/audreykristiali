@@ -707,20 +707,15 @@
   color: rgba(255,255,255,0.75);
   font-family: var(--sans);
 }
-  @media (max-width: 768px) {
+
+@media (max-width: 768px) {
   /* Nav */
-  nav {
-    padding: 1rem 1.5rem;
-  }
-  .nav-toggle {
-    display: flex;
-  }
+  nav { padding: 1rem 1.5rem; }
   .nav-links {
     display: flex;
     flex-direction: column;
     position: fixed;
-    top: 0;
-    right: -100%;
+    top: 0; right: -100%;
     width: 70%;
     max-width: 300px;
     height: 100vh;
@@ -731,39 +726,30 @@
     transition: right 0.3s ease;
     z-index: 999;
   }
-  .nav-links.open {
-    right: 0;
-  }
+  .nav-links.open { right: 0; }
+  .nav-links a { font-size: 1rem; color: var(--navy); }
 
   /* Hero */
   #hero {
-    grid-template-columns: 1fr 100px;
-    align-items: flex-start;
-    gap: 1rem;
+    grid-template-columns: 1fr;
     padding: 6rem 1.5rem 3rem;
     min-height: auto;
   }
   .hero-right {
     display: flex;
-    margin-top: 0.4rem;
+    justify-content: center;
+    margin-top: 1.5rem;
   }
   .hero-right img {
-    width: 100px !important;
-    max-width: 100px !important;
+    width: 100% !important;
+    max-width: 280px !important;
+    aspect-ratio: 3/4;
+    object-fit: cover;
   }
-  .hero-name {
-    font-size: 1.8rem;
-  }
-  .hero-desc {
-    font-size: 0.85rem;
-  }
-  .hero-cta {
-    flex-direction: column;
-  }
-  .btn-primary, .btn-ghost {
-    text-align: center;
-    width: 100%;
-  }
+  .hero-name { font-size: 2.5rem; }
+  .hero-desc { font-size: 0.9rem; }
+  .hero-cta { flex-direction: column; }
+  .btn-primary, .btn-ghost { text-align: center; width: 100%; }
 
   /* About */
   #about {
@@ -771,86 +757,51 @@
     padding: 4rem 1.5rem;
     gap: 3rem;
   }
-  .about-grid {
-    grid-template-columns: 1fr 1fr;
-  }
+  .about-grid { grid-template-columns: 1fr 1fr; }
 
-  /* Professional Experience */
-  #professional-experience {
-    padding: 4rem 1.5rem;
-  }
-  .professional-experience-header {
+  /* Experience */
+  #case-studies { padding: 4rem 1.5rem; }
+  .case-studies-header {
     flex-direction: column;
-    align-items: flex-start;
     gap: 1rem;
     margin-bottom: 2rem;
   }
-  .professional-experience-sub {
-    max-width: 100%;
-  }
-  .professional-experience-item {
-    display: grid !important;
-    grid-template-columns: 32px 1fr 68px !important;
-    align-items: center;
-    gap: 0.75rem !important;
+  .case-studies-sub { max-width: 100%; }
+  .case-item {
+    grid-template-columns: 40px 1fr !important;
+    gap: 1rem !important;
     padding: 1.5rem 0;
   }
-  .case-item img {
-    display: block !important;
-    width: 68px !important;
-    height: 68px !important;
-    max-width: 68px !important;
-    max-height: 68px !important;
-    object-fit: cover !important;
-  }
-  .case-item > div[style*="width: 200px"] {
-    display: none !important;
-  }
-  .case-arrow {
-    display: none;
-  }
-  .case-num {
-    font-size: 1.3rem;
-  }
-  .case-title {
-    font-size: 1.2rem;
-  }
-  .case-desc {
-    font-size: 0.82rem;
-  }
-  .case-tag {
-    font-size: 0.65rem;
-  }
+  .case-item img { display: none !important; }
+  .case-item > div[style*="width: 200px"] { display: none !important; }
+  .case-arrow { display: none; }
+  .case-num { font-size: 1.1rem; }
+  .case-title { font-size: 1.1rem; }
+  .case-desc { font-size: 0.85rem; line-height: 1.7; }
+  .case-tag { font-size: 0.65rem; }
 
-
-  /* Community */
-  #community {
-    padding: 4rem 1.5rem;
+  /* Community — tap to reveal */
+  #community { padding: 4rem 1.5rem; }
+  #community .section-title { font-size: 2rem; }
+  #community > div[style] { grid-template-columns: 1fr !important; }
+  .comm-card { aspect-ratio: 4/3; }
+  .comm-card .overlay-hover {
+    opacity: 0;
+    transition: opacity .35s ease;
   }
-  #community .section-title {
-    font-size: 2rem;
-  }
-  #community > div[style] {
-    grid-template-columns: 1fr !important;
-  }
-  .comm-card {
-    aspect-ratio: 16/9;
-  }
+  .comm-card.tapped .overlay-hover { opacity: 1; }
+  .comm-card.tapped .overlay-default { opacity: 0; }
+  .comm-card.tapped .comm-label { opacity: 0; }
 
   /* Skills */
-  #skills {
-    padding: 4rem 1.5rem;
-  }
-  .skills-grid {
-    grid-template-columns: 1fr !important;
-  }
-  .languages-bar {
-    grid-template-columns: 1fr !important;
-    gap: 2rem;
-  }
-  #skills > div[style] > div:nth-child(2) {
-    grid-template-columns: 1fr !important;
-    gap: 10px !important;
+  #skills { padding: 4rem 1.5rem; }
+  .skills-grid { grid-template-columns: 1fr !important; }
+  .languages-bar { grid-template-columns: 1fr !important; gap: 2rem; }
+
+  /* Certifications */
+  #skills > div[style] > div:last-child {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
   }
 
   /* Contact */
@@ -859,14 +810,10 @@
     padding: 4rem 1.5rem;
     gap: 3rem;
   }
-  .contact-right {
-    padding: 2rem 1.5rem;
-  }
+  .contact-right { padding: 2rem 1.5rem; }
 
   /* Section titles */
-  .section-title {
-    font-size: 2rem;
-  }
+  .section-title { font-size: 2rem; }
 
   /* Footer */
   footer {
@@ -876,16 +823,24 @@
     text-align: center;
   }
 }
+@media (max-width: 768px) {
+  .nav-toggle { display: flex !important; }
+}
   </style>
 </head>
 <body>
 
   <!-- Nav -->
   <nav id="navbar">
-    <a class="nav-logo" href="#">Audrey Kristiali</a>
-    <ul class="nav-links">
+  <a class="nav-logo" href="#">Audrey Kristiali</a>
+  <button class="nav-toggle" onclick="toggleNav()" style="display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px;">
+    <span style="width:22px; height:2px; background:var(--navy); display:block;"></span>
+    <span style="width:22px; height:2px; background:var(--navy); display:block;"></span>
+    <span style="width:22px; height:2px; background:var(--navy); display:block;"></span>
+  </button>
+  <ul class="nav-links">
       <li><a href="#about">About</a></li>
-      <li><a href="#professional-experiences">Work</a></li>
+      <li><a href="#professional-experience">Experience</a></li>
       <li><a href="#community">Community</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -911,9 +866,9 @@
 <a href="resume.pdf" target="_blank" class="btn-ghost">View Resume</a>
       </div>
     </div>
-<div class="hero-right">
-  <img src="headshot.jpg" alt="Audrey Kristiali"
-    style="width: 100%; max-width: 420px;
+    <div class="hero-right">
+  <img src="headshot.png" alt="Audrey Kristiali"
+    style="width: 100%; max-width: 300px;
            aspect-ratio: 3/4;
            object-fit: cover;
            border: 1px solid #c8dff4;
@@ -1364,6 +1319,24 @@
         btn.disabled = false;
       }, 3000);
     }
+    // Hamburger nav toggle
+function toggleNav() {
+  document.querySelector('.nav-links').classList.toggle('open');
+}
+
+// Close nav when link clicked
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    document.querySelector('.nav-links').classList.remove('open');
+  });
+});
+
+// Community tap to reveal on mobile
+document.querySelectorAll('.comm-card').forEach(card => {
+  card.addEventListener('click', () => {
+    card.classList.toggle('tapped');
+  });
+});
   </script>
 </body>
 </html>

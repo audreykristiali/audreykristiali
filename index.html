@@ -731,25 +731,22 @@
 
   /* Hero */
   #hero {
-    grid-template-columns: 1fr;
-    padding: 6rem 1.5rem 3rem;
-    min-height: auto;
-  }
-  .hero-right {
-    display: flex;
-    justify-content: center;
-    margin-top: 1.5rem;
-  }
-  .hero-right img {
-    width: 100% !important;
-    max-width: 280px !important;
-    aspect-ratio: 3/4;
-    object-fit: cover;
-  }
-  .hero-name { font-size: 2.5rem; }
-  .hero-desc { font-size: 0.9rem; }
-  .hero-cta { flex-direction: column; }
-  .btn-primary, .btn-ghost { text-align: center; width: 100%; }
+  grid-template-columns: 1fr 140px;
+  align-items: start;
+  gap: 1rem;
+  padding: 5rem 1.5rem 3rem;
+  min-height: auto;
+}
+.hero-right {
+  display: flex !important;
+  margin-top: 0.5rem;
+}
+.hero-right img {
+  width: 140px !important;
+  max-width: 140px !important;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+}
 
   /* About */
   #about {
@@ -781,17 +778,18 @@
   .case-tag { font-size: 0.65rem; }
 
   /* Community — tap to reveal */
-  #community { padding: 4rem 1.5rem; }
-  #community .section-title { font-size: 2rem; }
-  #community > div[style] { grid-template-columns: 1fr !important; }
-  .comm-card { aspect-ratio: 4/3; }
-  .comm-card .overlay-hover {
-    opacity: 0;
-    transition: opacity .35s ease;
-  }
-  .comm-card.tapped .overlay-hover { opacity: 1; }
-  .comm-card.tapped .overlay-default { opacity: 0; }
-  .comm-card.tapped .comm-label { opacity: 0; }
+#community { padding: 4rem 1.5rem; }
+#community .section-title { font-size: 2rem; }
+#community > div[style] { grid-template-columns: 1fr !important; }
+.comm-card { aspect-ratio: 4/3; max-height: 280px; }
+.comm-card .overlay-hover {
+  max-height: 280px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  justify-content: flex-start;
+  padding: 1.2rem;
+}
+.comm-desc { font-size: 0.82rem; line-height: 1.6; }
 
   /* Skills */
   #skills { padding: 4rem 1.5rem; }
@@ -840,7 +838,7 @@
   </button>
   <ul class="nav-links">
       <li><a href="#about">About</a></li>
-      <li><a href="#professional-experience">Experience</a></li>
+      <li><a href="#professional-experiences">Experience</a></li>
       <li><a href="#community">Community</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#contact">Contact</a></li>
